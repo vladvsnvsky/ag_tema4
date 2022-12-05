@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "temaaa",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "temaaa::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-temaaa-Debug-65db999fd1cf5d6f416e.json",
+					"name" : "temaaa",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "temaaa_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-temaaa_autogen-Debug-cf39db5c43e61d3d9808.json",
+					"name" : "temaaa_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "temaaa_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-temaaa_autogen_timestamp_deps-Debug-fc908477cf0480f50351.json",
+					"name" : "temaaa_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug",
+		"source" : "D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

@@ -1,0 +1,10 @@
+# ninja log v5
+10	394	6915282568732310	temaaa_autogen/timestamp	6a7f2bc89a499d48
+10	394	6915282568732310	temaaa_autogen/mocs_compilation.cpp	6a7f2bc89a499d48
+10	394	6915282568732310	D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug/temaaa_autogen/timestamp	6a7f2bc89a499d48
+3821	5344	6915282607632892	temaaa.exe	b81bec3e06ddf49
+10	394	6915282568732310	D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug/temaaa_autogen/mocs_compilation.cpp	6a7f2bc89a499d48
+1337	3855	6915197483113430	CMakeFiles/temaaa.dir/main.cpp.obj	f4ed94d415062783
+543	2988	6915280077728396	CMakeFiles/temaaa.dir/Graph.cpp.obj	732517d6f66ca98
+1340	3843	6915197482993743	CMakeFiles/temaaa.dir/temaaa_autogen/mocs_compilation.cpp.obj	b80a8c829ac6887a
+408	3821	6915282602975341	CMakeFiles/temaaa.dir/mainwindow.cpp.obj	7330fb83c5f8baa1

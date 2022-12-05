@@ -1,0 +1,5 @@
+D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug/CMakeFiles/temaaa.dir
+D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug/CMakeFiles/temaaa_autogen_timestamp_deps.dir
+D:/FACULTATE/Facultate/An_2_sem_1/AG/temaaa/cmake-build-debug/CMakeFiles/temaaa_autogen.dir
