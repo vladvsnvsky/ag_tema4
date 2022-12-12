@@ -14,7 +14,7 @@ find_package(Qt6 COMPONENTS
         REQUIRED)
 
 
-add_executable(temaaa main.cpp mainwindow.cpp mainwindow.h mainwindow.ui Graph.cpp Graph.h)
+add_executable(temaaa main.cpp mainwindow.cpp mainwindow.h mainwindow.ui Graph.cpp Graph.h topologicalgraphdialog.cpp topologicalgraphdialog.h topologicalgraphdialog.ui)
 target_link_libraries(temaaa
         Qt::Core
         Qt::Gui

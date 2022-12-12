@@ -40,6 +40,8 @@ public:
 
     bool isCyclic();
 
+    const std::vector<Node> &getNodes() const;
+
     void topologicalSort();
 
     const std::vector<Edge> &getEdges() const;
@@ -59,6 +61,8 @@ public:
     void showTopologicalOrder();
 
     void showTopologicalOrder(char *fileSource);
+
+    void printRoots(char *fileSource);
 
     void DFS();
 

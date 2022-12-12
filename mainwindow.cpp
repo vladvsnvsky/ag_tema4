@@ -7,6 +7,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QPainter>
+#include <QPainterPath>
+#include <QGraphicsPolygonItem>
 
 QPoint findAvailablePosition(std::vector<QPoint *> &positions);
 
@@ -18,8 +20,6 @@ mainwindow::mainwindow(QWidget *parent) :
 
     graph.readGraph("D:\\FACULTATE\\Facultate\\An_2_sem_1\\AG\\temaaa\\date.txt");
 
-    graph.DFS();
-
     update();
 }
 
@@ -28,27 +28,28 @@ mainwindow::~mainwindow() {
 }
 
 void drawLineWithArrow(QPainter &painter, QPoint start, QPoint end) {
+painter.setRenderHint(QPainter::Antialiasing, true);
 
-    painter.setRenderHint(QPainter::Antialiasing, true);
+qreal arrowSize = 10; // size of head
+painter.setPen(Qt::red);
+painter.setBrush(Qt::red);
 
-    qreal arrowSize = 10; // size of head
-    painter.setPen(Qt::black);
-    painter.setBrush(Qt::black);
+QLineF line(end, start);
 
-    QLineF line(start, end);
+double angle = std::atan2(-line.dy(), line.dx());
+QPointF arrowP1 = line.p1() + QPointF(sin(angle + M_PI / 3) * arrowSize,
+                                      cos(angle + M_PI / 3) * arrowSize);
+QPointF arrowP2 = line.p1() + QPointF(sin(angle + M_PI - M_PI / 3) * arrowSize,
+                                      cos(angle + M_PI - M_PI / 3) * arrowSize);
 
-    double angle = std::atan2(-line.dy(), line.dx());
-    QPointF arrowP1 = line.p1() + QPointF(sin(angle + M_PI / 3) * arrowSize,
-                                          cos(angle + M_PI / 3) * arrowSize);
-    QPointF arrowP2 = line.p1() + QPointF(sin(angle + M_PI - M_PI / 3) * arrowSize,
-                                          cos(angle + M_PI - M_PI / 3) * arrowSize);
+QPolygonF arrowHead;
+QGraphicsPolygonItem *polygonItem = new QGraphicsPolygonItem(arrowHead);
+polygonItem-> setOpacity(0.5);
+arrowHead.clear();
+arrowHead << line.p1() << arrowP1 << arrowP2;
+painter.drawLine(line);
+painter.drawPolygon(arrowHead);
 
-    QPolygonF arrowHead;
-    arrowHead.clear();
-    arrowHead << line.p1() << arrowP1 << arrowP2;
-    line.setLength(line.length() - 15);
-    painter.drawLine(line);
-    painter.drawPolygon(arrowHead);
 }
 
 
@@ -58,15 +59,13 @@ void mainwindow::paintEvent(QPaintEvent *) {
 
     std::vector<QPoint *> positions;
 
-    auto nodesList = graph.getTopologicalOrder();
-
     float x, y;
-    for (auto &it: nodesList) {
+    for (auto &it: graph.getNodes()) {
 
-        QRect nodeToDraw(it->coord.x(), it->coord.y(), 30, 30);
+        QRect nodeToDraw(it.coord.x(), it.coord.y(), 30, 30);
 
         painter.drawEllipse(nodeToDraw);
-        painter.drawText(nodeToDraw, Qt::AlignCenter, QString::number(it->info));
+        painter.drawText(nodeToDraw, Qt::AlignCenter, QString::number(it.info));
     }
 
     for (auto it: graph.getEdges()) {
@@ -80,25 +79,9 @@ void mainwindow::paintEvent(QPaintEvent *) {
     }
 }
 
-//
-//bool positionIsAvailable(int xa, int ya, std::vector<QPoint *> &positions) {
-//    for (auto it: positions) {
-//        int xb = it->x();
-//        int yb = it->y();
-//        int distance = sqrt(((xa-xb)*(xa-xb)+(ya-yb)*(ya-yb)));
-//        if(distance<100)
-//            return false;
-//    }
-//    return true;
-//}
-//
-//QPoint findAvailablePosition(std::vector<QPoint *> &positions) {
-//    int x, y;
-//    do {
-//        x = rand() % 300;
-//        y = rand() % 300;
-//    } while (!positionIsAvailable(x, y, positions));
-//
-//    QPoint res(x, y);
-//    return res;
-//}
+Graph mainwindow::getGraph() {
+    return this->graph;
+}
+
+
+

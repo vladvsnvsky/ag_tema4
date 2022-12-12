@@ -71,6 +71,11 @@ void Graph::topologicalSort() {
         }
     }
 
+    for(size_t index = 0; index<this->m_edges.size(); index ++){
+        if(m_edges[index].start->info>m_edges[index].end->info)
+            this->m_edges.erase(m_edges.begin()+index);
+    }
+
 }
 
 void Graph::visit(Node *n) {
@@ -167,6 +172,28 @@ const std::vector<QPoint> &Graph::getMPositions() const {
 void Graph::addPosition(QPoint pos) {
     this->m_positions.push_back(pos);
 
+}
+
+void Graph::printRoots(char *fileSource) {
+    std::ofstream fout(fileSource);
+    std::list<Node*>::iterator it;
+    std::list<Node*>::iterator prev;
+    it = this->topSorted.begin();
+
+    fout<<"Roots: "<<(*it)->info<<' ';
+
+    prev = it;
+    it++;
+
+    for(it; it!=this->topSorted.end(); it++){
+        if((*prev)->info>(*it)->info && (*it)->link.size())
+            fout<<(*it)->info<<' ';
+        prev = it;
+    }
+}
+
+const std::vector<Node> &Graph::getNodes() const {
+    return m_nodes;
 }
 
 

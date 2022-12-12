@@ -8,6 +8,7 @@
 #include <QMainWindow>
 #include "Graph.h"
 
+void drawLineWithArrow(QPainter &painter, QPoint start, QPoint end);
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class mainwindow; }
@@ -22,6 +23,8 @@ public:
     void drawGraph(Graph *g);
 
     void paintEvent(QPaintEvent *);
+
+    Graph getGraph();
 
     ~mainwindow() override;
 
